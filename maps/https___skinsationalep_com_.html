@@ -251,8 +251,10 @@
         });
 
         points.forEach(p => {
-          const rank = p.rank ?? 'X';
-          const iconUrl = `https://just-chill1.github.io/map-icons/icons/marker_${rank}.png`;
+          const rank = p.rank;
+          const paddedRank = String(rank).padStart(2, '0'); // ensures 01, 02, etc.
+          const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
+
           new google.maps.Marker({
             position: { lat: p.lat, lng: p.lng },
             map,
