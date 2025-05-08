@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoGrid Map - https://www.westendsalonexperience.com/</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSlDmejtZ5B-F1TDA4dT4m6vDOgDn9s3U"></script>
+    <style>
+      #map { height: 100vh; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const points = [
+  {
+    "lat": 44.0577676,
+    "lng": -92.5344416,
+    "rank": null
+  },
+  {
+    "lat": 44.0577676,
+    "lng": -92.5177848,
+    "rank": null
+  },
+  {
+    "lat": 44.0577676,
+    "lng": -92.501128,
+    "rank": null
+  },
+  {
+    "lat": 44.0577676,
+    "lng": -92.4844712,
+    "rank": null
+  },
+  {
+    "lat": 44.0577676,
+    "lng": -92.4678144,
+    "rank": null
+  },
+  {
+    "lat": 44.0577676,
+    "lng": -92.4511576,
+    "rank": null
+  },
+  {
+    "lat": 44.0577676,
+    "lng": -92.4345008,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.5344416,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.5177848,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.501128,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.4844712,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.4678144,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.4511576,
+    "rank": null
+  },
+  {
+    "lat": 44.0457902,
+    "lng": -92.4345008,
+    "rank": null
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.5344416,
+    "rank": 7
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.5177848,
+    "rank": 6
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.501128,
+    "rank": 5
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.4844712,
+    "rank": 3
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.4678144,
+    "rank": 5
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.4511576,
+    "rank": 5
+  },
+  {
+    "lat": 44.0338127,
+    "lng": -92.4345008,
+    "rank": null
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.5344416,
+    "rank": 5
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.5177848,
+    "rank": 5
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.501128,
+    "rank": 5
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.4844712,
+    "rank": 2
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.4678144,
+    "rank": 8
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.4511576,
+    "rank": 7
+  },
+  {
+    "lat": 44.0218352,
+    "lng": -92.4345008,
+    "rank": null
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.5344416,
+    "rank": 5
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.5177848,
+    "rank": 6
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.501128,
+    "rank": 5
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.4844712,
+    "rank": 1
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.4678144,
+    "rank": 7
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.4511576,
+    "rank": 7
+  },
+  {
+    "lat": 44.0098577,
+    "lng": -92.4345008,
+    "rank": null
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.5344416,
+    "rank": 5
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.5177848,
+    "rank": 5
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.501128,
+    "rank": 5
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.4844712,
+    "rank": 6
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.4678144,
+    "rank": 7
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.4511576,
+    "rank": 6
+  },
+  {
+    "lat": 43.9978802,
+    "lng": -92.4345008,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.5344416,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.5177848,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.501128,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.4844712,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.4678144,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.4511576,
+    "rank": null
+  },
+  {
+    "lat": 43.9859028,
+    "lng": -92.4345008,
+    "rank": null
+  }
+];
+      function initMap() {
+        const center = points[Math.floor(points.length / 2)];
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: center.lat, lng: center.lng }
+        });
+
+        points.forEach(p => {
+          const rank = p.rank ?? 'X';
+          const iconUrl = `https://just-chill1.github.io/map-icons/icons/marker_${rank}.png`;
+          new google.maps.Marker({
+            position: { lat: p.lat, lng: p.lng },
+            map,
+            icon: {
+              url: iconUrl,
+              scaledSize: new google.maps.Size(32, 32)
+            },
+            title: `Rank: ${rank}`
+          });
+        });
+      }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>
