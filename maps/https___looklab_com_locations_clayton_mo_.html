@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoGrid Map - https://looklab.com/locations/clayton-mo/</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSlDmejtZ5B-F1TDA4dT4m6vDOgDn9s3U"></script>
+    <style>
+      #map { height: 100vh; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const points = [
+  {
+    "lat": 38.6737547,
+    "lng": -90.384597,
+    "rank": null
+  },
+  {
+    "lat": 38.6737547,
+    "lng": -90.369263,
+    "rank": null
+  },
+  {
+    "lat": 38.6737547,
+    "lng": -90.3539291,
+    "rank": null
+  },
+  {
+    "lat": 38.6737547,
+    "lng": -90.3385951,
+    "rank": null
+  },
+  {
+    "lat": 38.6737547,
+    "lng": -90.3232611,
+    "rank": null
+  },
+  {
+    "lat": 38.6737547,
+    "lng": -90.3079272,
+    "rank": null
+  },
+  {
+    "lat": 38.6737547,
+    "lng": -90.2925932,
+    "rank": null
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.384597,
+    "rank": 1
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.369263,
+    "rank": 3
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.3539291,
+    "rank": 1
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.3385951,
+    "rank": 1
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.3232611,
+    "rank": 1
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.3079272,
+    "rank": 1
+  },
+  {
+    "lat": 38.6617773,
+    "lng": -90.2925932,
+    "rank": null
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.384597,
+    "rank": 2
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.369263,
+    "rank": 3
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.3539291,
+    "rank": 1
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.3385951,
+    "rank": 1
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.3232611,
+    "rank": 1
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.3079272,
+    "rank": 2
+  },
+  {
+    "lat": 38.6497998,
+    "lng": -90.2925932,
+    "rank": null
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.384597,
+    "rank": 3
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.369263,
+    "rank": 2
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.3539291,
+    "rank": 2
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.3385951,
+    "rank": 1
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.3232611,
+    "rank": 1
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.3079272,
+    "rank": 1
+  },
+  {
+    "lat": 38.6378223,
+    "lng": -90.2925932,
+    "rank": null
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.384597,
+    "rank": 3
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.369263,
+    "rank": 2
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.3539291,
+    "rank": 2
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.3385951,
+    "rank": 1
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.3232611,
+    "rank": 1
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.3079272,
+    "rank": 1
+  },
+  {
+    "lat": 38.6258448,
+    "lng": -90.2925932,
+    "rank": null
+  },
+  {
+    "lat": 38.6138673,
+    "lng": -90.384597,
+    "rank": 4
+  },
+  {
+    "lat": 38.6138673,
+    "lng": -90.369263,
+    "rank": 6
+  },
+  {
+    "lat": 38.6138673,
+    "lng": -90.3539291,
+    "rank": 3
+  },
+  {
+    "lat": 38.6138673,
+    "lng": -90.3385951,
+    "rank": 2
+  },
+  {
+    "lat": 38.6138673,
+    "lng": -90.3232611,
+    "rank": 3
+  },
+  {
+    "lat": 38.6138673,
+    "lng": -90.2925932,
+    "rank": null
+  },
+  {
+    "lat": 38.6018899,
+    "lng": -90.384597,
+    "rank": null
+  },
+  {
+    "lat": 38.6018899,
+    "lng": -90.369263,
+    "rank": null
+  },
+  {
+    "lat": 38.6018899,
+    "lng": -90.3539291,
+    "rank": null
+  },
+  {
+    "lat": 38.6018899,
+    "lng": -90.3385951,
+    "rank": null
+  },
+  {
+    "lat": 38.6018899,
+    "lng": -90.3232611,
+    "rank": null
+  },
+  {
+    "lat": 38.6018899,
+    "lng": -90.3079272,
+    "rank": null
+  }
+];
+      function initMap() {
+        const center = points[Math.floor(points.length / 2)];
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: center.lat, lng: center.lng }
+        });
+
+        points.forEach(p => {
+          const rank = p.rank ?? 'X';
+          const iconUrl = `https://just-chill1.github.io/map-icons/icons/marker_${rank}.png`;
+          new google.maps.Marker({
+            position: { lat: p.lat, lng: p.lng },
+            map,
+            icon: {
+              url: iconUrl,
+              scaledSize: new google.maps.Size(32, 32)
+            },
+            title: `Rank: ${rank}`
+          });
+        });
+      }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>
