@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoGrid Map - https://www.alo-medical.com/</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSlDmejtZ5B-F1TDA4dT4m6vDOgDn9s3U"></script>
+    <style>
+      #map { height: 100vh; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const points = [
+  {
+    "lat": 28.8783857,
+    "lng": -81.7253748,
+    "rank": null
+  },
+  {
+    "lat": 28.8783857,
+    "lng": -81.7117011,
+    "rank": null
+  },
+  {
+    "lat": 28.8783857,
+    "lng": -81.6980274,
+    "rank": null
+  },
+  {
+    "lat": 28.8783857,
+    "lng": -81.6843537,
+    "rank": null
+  },
+  {
+    "lat": 28.8783857,
+    "lng": -81.67068,
+    "rank": null
+  },
+  {
+    "lat": 28.8783857,
+    "lng": -81.6570063,
+    "rank": null
+  },
+  {
+    "lat": 28.8783857,
+    "lng": -81.6433326,
+    "rank": null
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.7253748,
+    "rank": 1
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.7117011,
+    "rank": 1
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.6980274,
+    "rank": 1
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.6843537,
+    "rank": 1
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.67068,
+    "rank": 1
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.6570063,
+    "rank": 1
+  },
+  {
+    "lat": 28.8664083,
+    "lng": -81.6433326,
+    "rank": null
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.7253748,
+    "rank": 1
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.7117011,
+    "rank": 2
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.6980274,
+    "rank": 1
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.6843537,
+    "rank": 1
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.67068,
+    "rank": 1
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.6570063,
+    "rank": 1
+  },
+  {
+    "lat": 28.8544308,
+    "lng": -81.6433326,
+    "rank": null
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.7253748,
+    "rank": 1
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.7117011,
+    "rank": 1
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.6980274,
+    "rank": 1
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.6843537,
+    "rank": 1
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.67068,
+    "rank": 1
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.6570063,
+    "rank": 2
+  },
+  {
+    "lat": 28.8424533,
+    "lng": -81.6433326,
+    "rank": null
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.7253748,
+    "rank": 4
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.7117011,
+    "rank": 5
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.6980274,
+    "rank": 2
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.6843537,
+    "rank": 2
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.67068,
+    "rank": 3
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.6570063,
+    "rank": 3
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.6433326,
+    "rank": null
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.7253748,
+    "rank": 4
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.7117011,
+    "rank": 3
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.6980274,
+    "rank": 3
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.6843537,
+    "rank": 2
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.67068,
+    "rank": 3
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.6570063,
+    "rank": 4
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.6433326,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.7253748,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.7117011,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.6980274,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.6843537,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.67068,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.6570063,
+    "rank": null
+  },
+  {
+    "lat": 28.8065209,
+    "lng": -81.6433326,
+    "rank": null
+  }
+];
+      function initMap() {
+        const center = points[Math.floor(points.length / 2)];
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: center.lat, lng: center.lng }
+        });
+
+        points.forEach(p => {
+          const rank = p.rank ?? 'X';
+          const iconUrl = `https://just-chill1.github.io/map-icons/icons/marker_${rank}.png`;
+          new google.maps.Marker({
+            position: { lat: p.lat, lng: p.lng },
+            map,
+            icon: {
+              url: iconUrl,
+              scaledSize: new google.maps.Size(32, 32)
+            },
+            title: `Rank: ${rank}`
+          });
+        });
+      }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>
