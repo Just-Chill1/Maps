@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoGrid Map - https://looklab.com/locations/arcadia-az/</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSlDmejtZ5B-F1TDA4dT4m6vDOgDn9s3U"></script>
+    <style>
+      #map { height: 100vh; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const points = [
+  {
+    "lat": 33.5307769,
+    "lng": -112.0476668,
+    "rank": null
+  },
+  {
+    "lat": 33.5307769,
+    "lng": -112.0333042,
+    "rank": null
+  },
+  {
+    "lat": 33.5307769,
+    "lng": -112.0189416,
+    "rank": null
+  },
+  {
+    "lat": 33.5307769,
+    "lng": -112.004579,
+    "rank": null
+  },
+  {
+    "lat": 33.5307769,
+    "lng": -111.9758538,
+    "rank": null
+  },
+  {
+    "lat": 33.5307769,
+    "lng": -111.9614912,
+    "rank": null
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -112.0476668,
+    "rank": 10
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -112.0333042,
+    "rank": 6
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -112.0189416,
+    "rank": 4
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -112.004579,
+    "rank": 3
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -111.9902164,
+    "rank": 2
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -111.9758538,
+    "rank": 2
+  },
+  {
+    "lat": 33.5187995,
+    "lng": -111.9614912,
+    "rank": null
+  },
+  {
+    "lat": 33.506822,
+    "lng": -112.0476668,
+    "rank": 10
+  },
+  {
+    "lat": 33.506822,
+    "lng": -112.0333042,
+    "rank": 7
+  },
+  {
+    "lat": 33.506822,
+    "lng": -112.0189416,
+    "rank": 5
+  },
+  {
+    "lat": 33.506822,
+    "lng": -111.9902164,
+    "rank": 3
+  },
+  {
+    "lat": 33.506822,
+    "lng": -111.9758538,
+    "rank": 6
+  },
+  {
+    "lat": 33.506822,
+    "lng": -111.9614912,
+    "rank": null
+  },
+  {
+    "lat": 33.4948445,
+    "lng": -112.0476668,
+    "rank": 6
+  },
+  {
+    "lat": 33.4948445,
+    "lng": -112.0333042,
+    "rank": 5
+  },
+  {
+    "lat": 33.4948445,
+    "lng": -112.004579,
+    "rank": 1
+  },
+  {
+    "lat": 33.4948445,
+    "lng": -111.9902164,
+    "rank": 4
+  },
+  {
+    "lat": 33.4948445,
+    "lng": -111.9758538,
+    "rank": 3
+  },
+  {
+    "lat": 33.4948445,
+    "lng": -111.9614912,
+    "rank": null
+  },
+  {
+    "lat": 33.482867,
+    "lng": -112.0476668,
+    "rank": 5
+  },
+  {
+    "lat": 33.482867,
+    "lng": -112.0333042,
+    "rank": 3
+  },
+  {
+    "lat": 33.482867,
+    "lng": -112.0189416,
+    "rank": 2
+  },
+  {
+    "lat": 33.482867,
+    "lng": -112.004579,
+    "rank": 2
+  },
+  {
+    "lat": 33.482867,
+    "lng": -111.9758538,
+    "rank": 4
+  },
+  {
+    "lat": 33.482867,
+    "lng": -111.9614912,
+    "rank": null
+  },
+  {
+    "lat": 33.4708895,
+    "lng": -112.0476668,
+    "rank": 1
+  },
+  {
+    "lat": 33.4708895,
+    "lng": -112.0333042,
+    "rank": 2
+  },
+  {
+    "lat": 33.4708895,
+    "lng": -112.0189416,
+    "rank": 2
+  },
+  {
+    "lat": 33.4708895,
+    "lng": -112.004579,
+    "rank": 2
+  },
+  {
+    "lat": 33.4708895,
+    "lng": -111.9758538,
+    "rank": 2
+  },
+  {
+    "lat": 33.4708895,
+    "lng": -111.9614912,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -112.0476668,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -112.0333042,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -112.0189416,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -112.004579,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -111.9902164,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -111.9758538,
+    "rank": null
+  },
+  {
+    "lat": 33.4589121,
+    "lng": -111.9614912,
+    "rank": null
+  }
+];
+      function initMap() {
+        const center = points[Math.floor(points.length / 2)];
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: center.lat, lng: center.lng }
+        });
+
+        points.forEach(p => {
+          const rank = p.rank ?? 'X';
+          const iconUrl = `https://just-chill1.github.io/map-icons/icons/marker_${rank}.png`;
+          new google.maps.Marker({
+            position: { lat: p.lat, lng: p.lng },
+            map,
+            icon: {
+              url: iconUrl,
+              scaledSize: new google.maps.Size(32, 32)
+            },
+            title: `Rank: ${rank}`
+          });
+        });
+      }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>
