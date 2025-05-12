@@ -90,12 +90,12 @@
   {
     "lat": 28.8544308,
     "lng": -81.7117011,
-    "rank": 2
+    "rank": 1
   },
   {
     "lat": 28.8544308,
     "lng": -81.6980274,
-    "rank": 1
+    "rank": 2
   },
   {
     "lat": 28.8544308,
@@ -135,12 +135,12 @@
   {
     "lat": 28.8424533,
     "lng": -81.6843537,
-    "rank": 1
+    "rank": 3
   },
   {
     "lat": 28.8424533,
     "lng": -81.67068,
-    "rank": 1
+    "rank": 3
   },
   {
     "lat": 28.8424533,
@@ -154,13 +154,8 @@
   },
   {
     "lat": 28.8304758,
-    "lng": -81.7253748,
-    "rank": 4
-  },
-  {
-    "lat": 28.8304758,
     "lng": -81.7117011,
-    "rank": 5
+    "rank": 3
   },
   {
     "lat": 28.8304758,
@@ -189,23 +184,13 @@
   },
   {
     "lat": 28.8184983,
-    "lng": -81.7253748,
+    "lng": -81.7117011,
     "rank": 4
   },
   {
     "lat": 28.8184983,
-    "lng": -81.7117011,
-    "rank": 3
-  },
-  {
-    "lat": 28.8184983,
-    "lng": -81.6980274,
-    "rank": 3
-  },
-  {
-    "lat": 28.8184983,
     "lng": -81.6843537,
-    "rank": 2
+    "rank": 3
   },
   {
     "lat": 28.8184983,
@@ -266,7 +251,7 @@
         });
 
         points.forEach(p => {
-          const rank = p.rank;
+          const rank = p.rank != null ? p.rank : 50; // 👈 if null, default to 50
           const paddedRank = String(rank).padStart(2, '0'); // ensures 01, 02, etc.
           const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
 
@@ -277,7 +262,7 @@
               url: iconUrl,
               scaledSize: new google.maps.Size(32, 32)
             },
-            title: `Rank: ${rank}`
+            title: `Rank: ${p.rank !== null ? p.rank : "Default 50"}`
           });
         });
       }
