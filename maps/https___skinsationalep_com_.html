@@ -70,11 +70,6 @@
   {
     "lat": 31.8043505,
     "lng": -106.3730026,
-    "rank": 2
-  },
-  {
-    "lat": 31.8043505,
-    "lng": -106.3589126,
     "rank": 1
   },
   {
@@ -89,11 +84,6 @@
   },
   {
     "lat": 31.792373,
-    "lng": -106.4152724,
-    "rank": 1
-  },
-  {
-    "lat": 31.792373,
     "lng": -106.4011824,
     "rank": 1
   },
@@ -105,7 +95,12 @@
   {
     "lat": 31.792373,
     "lng": -106.3730026,
-    "rank": 1
+    "rank": 2
+  },
+  {
+    "lat": 31.792373,
+    "lng": -106.3589126,
+    "rank": 2
   },
   {
     "lat": 31.792373,
@@ -143,19 +138,29 @@
     "rank": 2
   },
   {
+    "lat": 31.7803955,
+    "lng": -106.3448227,
+    "rank": null
+  },
+  {
+    "lat": 31.768418,
+    "lng": -106.4293623,
+    "rank": 1
+  },
+  {
     "lat": 31.768418,
     "lng": -106.4152724,
-    "rank": 1
+    "rank": 2
   },
   {
     "lat": 31.768418,
     "lng": -106.4011824,
-    "rank": 1
+    "rank": 2
   },
   {
     "lat": 31.768418,
     "lng": -106.3870925,
-    "rank": 1
+    "rank": 2
   },
   {
     "lat": 31.768418,
@@ -165,7 +170,7 @@
   {
     "lat": 31.768418,
     "lng": -106.3589126,
-    "rank": 4
+    "rank": 2
   },
   {
     "lat": 31.768418,
@@ -175,12 +180,12 @@
   {
     "lat": 31.7564405,
     "lng": -106.4293623,
-    "rank": 1
+    "rank": 2
   },
   {
     "lat": 31.7564405,
     "lng": -106.4152724,
-    "rank": 2
+    "rank": 1
   },
   {
     "lat": 31.7564405,
@@ -236,11 +241,6 @@
     "lat": 31.7444631,
     "lng": -106.3589126,
     "rank": null
-  },
-  {
-    "lat": 31.7444631,
-    "lng": -106.3448227,
-    "rank": null
   }
 ];
       function initMap() {
@@ -251,7 +251,7 @@
         });
 
         points.forEach(p => {
-          const rank = p.rank;
+          const rank = p.rank != null ? p.rank : 50; // 👈 if null, default to 50
           const paddedRank = String(rank).padStart(2, '0'); // ensures 01, 02, etc.
           const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
 
@@ -262,7 +262,7 @@
               url: iconUrl,
               scaledSize: new google.maps.Size(32, 32)
             },
-            title: `Rank: ${rank}`
+            title: `Rank: ${p.rank !== null ? p.rank : "Default 50"}`
           });
         });
       }
