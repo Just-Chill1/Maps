@@ -39,11 +39,6 @@
   },
   {
     "lat": 44.0577676,
-    "lng": -92.4511576,
-    "rank": null
-  },
-  {
-    "lat": 44.0577676,
     "lng": -92.4345008,
     "rank": null
   },
@@ -85,7 +80,7 @@
   {
     "lat": 44.0338127,
     "lng": -92.5344416,
-    "rank": 7
+    "rank": 6
   },
   {
     "lat": 44.0338127,
@@ -104,13 +99,8 @@
   },
   {
     "lat": 44.0338127,
-    "lng": -92.4678144,
-    "rank": 5
-  },
-  {
-    "lat": 44.0338127,
     "lng": -92.4511576,
-    "rank": 5
+    "rank": 6
   },
   {
     "lat": 44.0338127,
@@ -125,11 +115,6 @@
   {
     "lat": 44.0218352,
     "lng": -92.5177848,
-    "rank": 5
-  },
-  {
-    "lat": 44.0218352,
-    "lng": -92.501128,
     "rank": 5
   },
   {
@@ -160,27 +145,22 @@
   {
     "lat": 44.0098577,
     "lng": -92.5177848,
-    "rank": 6
-  },
-  {
-    "lat": 44.0098577,
-    "lng": -92.501128,
-    "rank": 5
+    "rank": 3
   },
   {
     "lat": 44.0098577,
     "lng": -92.4844712,
-    "rank": 1
+    "rank": 5
   },
   {
     "lat": 44.0098577,
     "lng": -92.4678144,
-    "rank": 7
+    "rank": 9
   },
   {
     "lat": 44.0098577,
     "lng": -92.4511576,
-    "rank": 7
+    "rank": 8
   },
   {
     "lat": 44.0098577,
@@ -195,7 +175,7 @@
   {
     "lat": 43.9978802,
     "lng": -92.5177848,
-    "rank": 5
+    "rank": 6
   },
   {
     "lat": 43.9978802,
@@ -216,11 +196,6 @@
     "lat": 43.9978802,
     "lng": -92.4511576,
     "rank": 6
-  },
-  {
-    "lat": 43.9978802,
-    "lng": -92.4345008,
-    "rank": null
   },
   {
     "lat": 43.9859028,
@@ -266,7 +241,7 @@
         });
 
         points.forEach(p => {
-          const rank = p.rank;
+          const rank = p.rank != null ? p.rank : 50; // 👈 if null, default to 50
           const paddedRank = String(rank).padStart(2, '0'); // ensures 01, 02, etc.
           const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
 
@@ -277,7 +252,7 @@
               url: iconUrl,
               scaledSize: new google.maps.Size(32, 32)
             },
-            title: `Rank: ${rank}`
+            title: `Rank: ${p.rank !== null ? p.rank : "Default 50"}`
           });
         });
       }
