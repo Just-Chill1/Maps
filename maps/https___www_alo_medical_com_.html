@@ -59,11 +59,6 @@
   },
   {
     "lat": 28.8664083,
-    "lng": -81.6980274,
-    "rank": 1
-  },
-  {
-    "lat": 28.8664083,
     "lng": -81.6843537,
     "rank": 1
   },
@@ -95,11 +90,6 @@
   {
     "lat": 28.8544308,
     "lng": -81.6980274,
-    "rank": 2
-  },
-  {
-    "lat": 28.8544308,
-    "lng": -81.6843537,
     "rank": 1
   },
   {
@@ -135,12 +125,12 @@
   {
     "lat": 28.8424533,
     "lng": -81.6843537,
-    "rank": 3
+    "rank": 1
   },
   {
     "lat": 28.8424533,
     "lng": -81.67068,
-    "rank": 3
+    "rank": 1
   },
   {
     "lat": 28.8424533,
@@ -151,6 +141,11 @@
     "lat": 28.8424533,
     "lng": -81.6433326,
     "rank": null
+  },
+  {
+    "lat": 28.8304758,
+    "lng": -81.7253748,
+    "rank": 4
   },
   {
     "lat": 28.8304758,
@@ -166,11 +161,6 @@
     "lat": 28.8304758,
     "lng": -81.6843537,
     "rank": 2
-  },
-  {
-    "lat": 28.8304758,
-    "lng": -81.67068,
-    "rank": 3
   },
   {
     "lat": 28.8304758,
@@ -184,7 +174,17 @@
   },
   {
     "lat": 28.8184983,
+    "lng": -81.7253748,
+    "rank": 4
+  },
+  {
+    "lat": 28.8184983,
     "lng": -81.7117011,
+    "rank": 4
+  },
+  {
+    "lat": 28.8184983,
+    "lng": -81.6980274,
     "rank": 4
   },
   {
@@ -246,23 +246,28 @@
       function initMap() {
         const center = points[Math.floor(points.length / 2)];
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 15,
+          zoom: 13,
           center: { lat: center.lat, lng: center.lng }
         });
 
         points.forEach(p => {
-          const rank = p.rank != null ? p.rank : 50; // 👈 if null, default to 50
-          const paddedRank = String(rank).padStart(2, '0'); // ensures 01, 02, etc.
-          const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
+          let iconFile;
+          if (p.rank === null || p.rank === undefined) {
+            iconFile = "marker_null.png";
+          } else {
+            const paddedRank = String(p.rank).padStart(2, '0'); // 01, 02, ..., 50
+            iconFile = `marker_${paddedRank}.png`;
+          }
+          const iconUrl = `${"https://raw.githubusercontent.com/Just-Chill1/map-icons/main"}/${iconFile}`;
 
           new google.maps.Marker({
             position: { lat: p.lat, lng: p.lng },
             map,
             icon: {
               url: iconUrl,
-              scaledSize: new google.maps.Size(32, 32)
+              scaledSize: new google.maps.Size(50, 50)
             },
-            title: `Rank: ${p.rank !== null ? p.rank : "Default 50"}`
+            title: `Rank: ${p.rank !== null ? p.rank : 'null'}`
           });
         });
       }
