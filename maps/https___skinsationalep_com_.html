@@ -59,6 +59,11 @@
   },
   {
     "lat": 31.8043505,
+    "lng": -106.4011824,
+    "rank": 1
+  },
+  {
+    "lat": 31.8043505,
     "lng": -106.3870925,
     "rank": 1
   },
@@ -119,6 +124,11 @@
   },
   {
     "lat": 31.7803955,
+    "lng": -106.4152724,
+    "rank": 1
+  },
+  {
+    "lat": 31.7803955,
     "lng": -106.4011824,
     "rank": 1
   },
@@ -135,7 +145,7 @@
   {
     "lat": 31.7803955,
     "lng": -106.3589126,
-    "rank": 2
+    "rank": 1
   },
   {
     "lat": 31.7803955,
@@ -155,7 +165,7 @@
   {
     "lat": 31.768418,
     "lng": -106.4011824,
-    "rank": 1
+    "rank": 2
   },
   {
     "lat": 31.768418,
@@ -170,7 +180,7 @@
   {
     "lat": 31.768418,
     "lng": -106.3589126,
-    "rank": 5
+    "rank": 3
   },
   {
     "lat": 31.768418,
@@ -205,7 +215,7 @@
   {
     "lat": 31.7564405,
     "lng": -106.3589126,
-    "rank": 2
+    "rank": 3
   },
   {
     "lat": 31.7564405,
@@ -251,7 +261,7 @@
       function initMap() {
         const center = points[Math.floor(points.length / 2)];
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 13,
+          zoom: 12,
           center: { lat: center.lat, lng: center.lng }
         });
 
@@ -270,7 +280,7 @@
             map,
             icon: {
               url: iconUrl,
-              scaledSize: new google.maps.Size(50, 50)
+              scaledSize: new google.maps.Size(30, 50)
             },
             title: `Rank: ${p.rank !== null ? p.rank : 'null'}`
           });
