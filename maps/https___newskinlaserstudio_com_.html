@@ -261,28 +261,33 @@
       function initMap() {
         const center = points[Math.floor(points.length / 2)];
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
+          zoom: 13,
           center: { lat: center.lat, lng: center.lng }
         });
 
         points.forEach(p => {
-          let iconFile;
-          if (p.rank === null || p.rank === undefined) {
-            iconFile = "marker_null.png";
+          let rank = p.rank;
+
+          // Normalize rank
+          if (rank === null || rank === undefined) {
+            rank = "null";
           } else {
-            const paddedRank = String(p.rank).padStart(2, '0'); // 01, 02, ..., 50
-            iconFile = `marker_${paddedRank}.png`;
+            rank = parseInt(rank, 10); // Force to number
           }
-          const iconUrl = `${"https://raw.githubusercontent.com/Just-Chill1/map-icons/main"}/${iconFile}`;
+
+          // Now pad if number, else leave "null"
+          const paddedRank = (rank === "null") ? "null" : String(rank).padStart(2, '0');
+
+          const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
 
           new google.maps.Marker({
             position: { lat: p.lat, lng: p.lng },
             map,
             icon: {
               url: iconUrl,
-              scaledSize: new google.maps.Size(30, 50)
+              scaledSize: new google.maps.Size(50, 50)
             },
-            title: `Rank: ${p.rank !== null ? p.rank : 'null'}`
+            title: `Rank: ${rank}`
           });
         });
       }
