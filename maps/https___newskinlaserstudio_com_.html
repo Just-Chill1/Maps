@@ -99,6 +99,11 @@
   },
   {
     "lat": 27.9817075,
+    "lng": -81.9641427,
+    "rank": null
+  },
+  {
+    "lat": 27.9817075,
     "lng": -81.9505812,
     "rank": null
   },
@@ -143,6 +148,11 @@
     "rank": null
   },
   {
+    "lat": 27.96973,
+    "lng": -81.9234581,
+    "rank": null
+  },
+  {
     "lat": 27.9577525,
     "lng": -82.0048273,
     "rank": null
@@ -219,6 +229,11 @@
   },
   {
     "lat": 27.9337976,
+    "lng": -81.9912658,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
     "lng": -81.9777042,
     "rank": null
   },
@@ -230,6 +245,11 @@
   {
     "lat": 27.9337976,
     "lng": -81.9505812,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9370196,
     "rank": null
   },
   {
@@ -241,7 +261,7 @@
       function initMap() {
         const center = points[Math.floor(points.length / 2)];
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 13,
+          zoom: 12,
           center: { lat: center.lat, lng: center.lng }
         });
 
@@ -260,7 +280,7 @@
             map,
             icon: {
               url: iconUrl,
-              scaledSize: new google.maps.Size(50, 50)
+              scaledSize: new google.maps.Size(30, 50)
             },
             title: `Rank: ${p.rank !== null ? p.rank : 'null'}`
           });
