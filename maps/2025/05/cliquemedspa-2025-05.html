@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoGrid Map - https://cliquemedspa.com/</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSlDmejtZ5B-F1TDA4dT4m6vDOgDn9s3U"></script>
+    <style>
+      #map { height: 100vh; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const points = [
+  {
+    "lat": 28.0056624,
+    "lng": -82.0048273,
+    "rank": null
+  },
+  {
+    "lat": 28.0056624,
+    "lng": -81.9912658,
+    "rank": null
+  },
+  {
+    "lat": 28.0056624,
+    "lng": -81.9777042,
+    "rank": null
+  },
+  {
+    "lat": 28.0056624,
+    "lng": -81.9641427,
+    "rank": null
+  },
+  {
+    "lat": 28.0056624,
+    "lng": -81.9505812,
+    "rank": null
+  },
+  {
+    "lat": 28.0056624,
+    "lng": -81.9370196,
+    "rank": null
+  },
+  {
+    "lat": 28.0056624,
+    "lng": -81.9234581,
+    "rank": null
+  },
+  {
+    "lat": 27.993685,
+    "lng": -82.0048273,
+    "rank": 8
+  },
+  {
+    "lat": 27.993685,
+    "lng": -81.9912658,
+    "rank": 10
+  },
+  {
+    "lat": 27.993685,
+    "lng": -81.9777042,
+    "rank": 10
+  },
+  {
+    "lat": 27.993685,
+    "lng": -81.9641427,
+    "rank": 9
+  },
+  {
+    "lat": 27.993685,
+    "lng": -81.9505812,
+    "rank": 9
+  },
+  {
+    "lat": 27.993685,
+    "lng": -81.9370196,
+    "rank": 8
+  },
+  {
+    "lat": 27.993685,
+    "lng": -81.9234581,
+    "rank": 7
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -82.0048273,
+    "rank": 7
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -81.9912658,
+    "rank": 7
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -81.9777042,
+    "rank": 7
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -81.9641427,
+    "rank": 7
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -81.9505812,
+    "rank": 8
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -81.9370196,
+    "rank": 8
+  },
+  {
+    "lat": 27.9817075,
+    "lng": -81.9234581,
+    "rank": 7
+  },
+  {
+    "lat": 27.96973,
+    "lng": -82.0048273,
+    "rank": 7
+  },
+  {
+    "lat": 27.96973,
+    "lng": -81.9912658,
+    "rank": 7
+  },
+  {
+    "lat": 27.96973,
+    "lng": -81.9777042,
+    "rank": 7
+  },
+  {
+    "lat": 27.96973,
+    "lng": -81.9641427,
+    "rank": 3
+  },
+  {
+    "lat": 27.96973,
+    "lng": -81.9505812,
+    "rank": 6
+  },
+  {
+    "lat": 27.96973,
+    "lng": -81.9370196,
+    "rank": 8
+  },
+  {
+    "lat": 27.96973,
+    "lng": -81.9234581,
+    "rank": 7
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -82.0048273,
+    "rank": 6
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -81.9912658,
+    "rank": 6
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -81.9777042,
+    "rank": 5
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -81.9641427,
+    "rank": 6
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -81.9505812,
+    "rank": 7
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -81.9370196,
+    "rank": 8
+  },
+  {
+    "lat": 27.9577525,
+    "lng": -81.9234581,
+    "rank": 7
+  },
+  {
+    "lat": 27.945775,
+    "lng": -82.0048273,
+    "rank": 4
+  },
+  {
+    "lat": 27.945775,
+    "lng": -81.9912658,
+    "rank": 6
+  },
+  {
+    "lat": 27.945775,
+    "lng": -81.9777042,
+    "rank": 7
+  },
+  {
+    "lat": 27.945775,
+    "lng": -81.9641427,
+    "rank": 6
+  },
+  {
+    "lat": 27.945775,
+    "lng": -81.9505812,
+    "rank": 6
+  },
+  {
+    "lat": 27.945775,
+    "lng": -81.9370196,
+    "rank": 9
+  },
+  {
+    "lat": 27.945775,
+    "lng": -81.9234581,
+    "rank": 7
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -82.0048273,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9912658,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9777042,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9641427,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9505812,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9370196,
+    "rank": null
+  },
+  {
+    "lat": 27.9337976,
+    "lng": -81.9234581,
+    "rank": null
+  }
+];
+      function initMap() {
+        const center = points[Math.floor(points.length / 2)];
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 13,
+          center: { lat: center.lat, lng: center.lng }
+        });
+
+        points.forEach(p => {
+          let rank = p.rank;
+
+          if (rank === null || rank === undefined) {
+            rank = "null";
+          } else {
+            rank = parseInt(rank, 10);
+          }
+
+          const paddedRank = (rank === "null") ? "null" : String(rank).padStart(2, '0');
+          const iconUrl = `https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_${paddedRank}.png`;
+
+          new google.maps.Marker({
+            position: { lat: p.lat, lng: p.lng },
+            map,
+            icon: {
+              url: iconUrl,
+              scaledSize: new google.maps.Size(30, 50)
+            },
+            title: `Rank: ${rank}`
+          });
+        });
+      }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>
