@@ -258,6 +258,23 @@
     "rank": null
   }
 ];
+
+      function preloadIcons(callback) {
+        const iconNumbers = [...Array(50).keys()].map(i => String(i + 1).padStart(2, '0')).concat('null');
+        let loaded = 0;
+
+        iconNumbers.forEach(num => {
+          const img = new Image();
+          img.src = "https://raw.githubusercontent.com/Just-Chill1/map-icons/main/marker_" + num + ".png";
+          img.onload = img.onerror = () => {
+            loaded++;
+            if (loaded === iconNumbers.length) {
+              callback();
+            }
+          };
+        });
+      }
+
       function initMap() {
         const center = points[Math.floor(points.length / 2)];
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -289,7 +306,9 @@
         });
       }
 
-      window.onload = initMap;
+      window.onload = function() {
+        preloadIcons(initMap);
+      };
     </script>
   </body>
 </html>
